@@ -1,241 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дом ДВ — банные комплексы, бани-бочки, банные чаны, каркасные дома</title>
+  <title>ДОМ ДВ | банные комплексы</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#FED27A',
+            ink: '#1E1F1C',
+            panel: '#1B1C1A'
+          },
+          fontFamily: { sans: ['Inter', 'Arial', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: #1E1F1C;
+      color: #f5f5f2
+    }
+
+    .container-xl {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto
+    }
+
+    .glass {
+      background: rgba(18, 19, 17, .72);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(90deg, rgba(8, 9, 8, .92) 0%, rgba(8, 9, 8, .62) 46%, rgba(8, 9, 8, .18) 100%)
+    }
+
+    .gold-gradient {
+      background: linear-gradient(135deg, #e5b552, #bd8524)
+    }
+
+    .card {
+      border: 1px solid #343530;
+      background: linear-gradient(145deg, #20211e, #2E3E31);
+    }
+
+    .section-label {
+      color: #d9a441;
+      letter-spacing: .18em;
+      font-size: .72rem;
+      font-weight: 700
+    }
+  </style>
 </head>
 
-<body class="min-h-screen bg-white font-sans text-stone-800 antialiased">
+<body class="font-sans antialiased">
 
-  <!-- ============ ШАПКА ============ -->
-  <header class="sticky top-0 z-50">
-    <!-- Верхняя полоса: адрес и контакты -->
-    <div class="hidden bg-stone-900 text-stone-300 md:block">
-      <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-2 text-sm">
-        <p class="flex items-center gap-2">
-          <svg class="h-4 w-4 shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-            stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-          </svg>
-          <span>680031, г. Хабаровск, ул. Карла Маркса, 144а/2</span>
-        </p>
-        <div class="flex items-center gap-5">
-          <a href="tel:+79242207378" class="flex items-center gap-2 transition hover:text-white">
-            <svg class="h-4 w-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            <span>+7 (924) 220-73-78</span>
-          </a>
-          <a href="tel:+79242015015" class="flex items-center gap-2 transition hover:text-white">
-            <svg class="h-4 w-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            <span>+7 (924) 201-50-15</span>
-          </a>
-          <span class="h-4 w-px bg-stone-700"></span>
-          <div class="flex items-center gap-3">
-            <a href="https://t.me/bathhouse27" target="_blank" rel="noopener" aria-label="Telegram"
-              class="transition hover:text-white">
-              <svg class="h-4 w-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-              </svg>
-            </a>
-            <a href="https://wa.me/79242207378" target="_blank" rel="noopener" aria-label="WhatsApp"
-              class="transition hover:text-white">
-              <svg class="h-4 w-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-              </svg>
-            </a>
-          </div>
+  <header class="absolute top-0 left-0 right-0 z-30">
+    <div class="container-xl flex items-center justify-between py-5">
+      <img style="max-height: 60px;background: #2E3E3194;padding: 10px;border-radius: 10px;" src="data:image/jpeg;base64,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" alt="">
+      <!-- <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl border border-gold/70 flex items-center justify-center text-gold text-2xl">⌂
         </div>
-      </div>
-    </div>
-
-    <!-- Основная полоса: логотип, меню, кнопка -->
-    <div class="bg-[#f8f5ee] shadow-sm">
-      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        <!-- Логотип -->
-        <a href="#" class="flex items-center" aria-label="Дом ДВ — на главную">
-          <img src="https://xn--b1adlqilgi.xn--p1ai/sites/all/themes/main/logo.png" alt="Дом ДВ"
-            class="h-20 w-auto md:h-24" width="94" height="141">
-        </a>
-
-        <!-- Меню (desktop) -->
-        <nav class="hidden items-center gap-1 text-[15px] font-medium text-stone-800 lg:flex"
-          aria-label="Основное меню">
-          <a href="#" class="rounded-md px-3 py-2 transition hover:bg-white/70 hover:text-amber-700">Главная</a>
-
-          <!-- Услуги (выпадающее, многомерное) -->
-          <div class="group relative">
-            <a href="#"
-              class="flex items-center gap-1 rounded-md px-3 py-2 transition hover:bg-white/70 hover:text-amber-700">
-              Услуги
-              <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
-            </a>
-            <div
-              class="invisible absolute left-0 top-full z-50 w-96 pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div class="overflow-hidden rounded-xl border border-stone-200 bg-white p-2 shadow-xl">
-                <a href="#"
-                  class="group/item flex items-start gap-3 rounded-lg px-3 py-2.5 transition hover:bg-amber-50">
-                  <svg class="mt-0.5 h-5 w-5 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
-                  </svg>
-                  <span class="group-hover/item:text-amber-700">
-                    <span class="block font-semibold text-stone-900">Банные комплексы под ключ</span>
-                    <span class="block text-sm text-stone-500">Проектирование и строительство банных комплексов для дома
-                      и баз отдыха</span>
-                  </span>
-                </a>
-                <a href="#"
-                  class="group/item flex items-start gap-3 rounded-lg px-3 py-2.5 transition hover:bg-amber-50">
-                  <svg class="mt-0.5 h-5 w-5 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125V21M3 9.75L9.6 3.15c.66-.66 1.733-.66 2.393 0L18.6 9.75M12 3v4.5" />
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M19.5 10.5v9.375c0 .621-.504 1.125-1.125 1.125H5.625A1.125 1.125 0 014.5 19.875V10.5" />
-                  </svg>
-                  <span class="group-hover/item:text-amber-700">
-                    <span class="block font-semibold text-stone-900">Бани-бочки</span>
-                    <span class="block text-sm text-stone-500">Производство и продажа бань-бочек под ключ</span>
-                  </span>
-                </a>
-                <a href="#"
-                  class="group/item flex items-start gap-3 rounded-lg px-3 py-2.5 transition hover:bg-amber-50">
-                  <svg class="mt-0.5 h-5 w-5 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12 3v17.25M12 3c-3.314 0-6 1.343-6 3s2.686 3 6 3 6-1.343 6-3-2.686-3-6-3zM12 20.25c-3.314 0-6-1.343-6-3 0-1.657 2.686-3 6-3s6 1.343 6 3c0 1.657-2.686 3-6 3z" />
-                  </svg>
-                  <span class="group-hover/item:text-amber-700">
-                    <span class="block font-semibold text-stone-900">Банные чаны</span>
-                    <span class="block text-sm text-stone-500">Производство и продажа банных чанов, более 30
-                      моделей</span>
-                  </span>
-                </a>
-                <a href="#"
-                  class="group/item flex items-start gap-3 rounded-lg px-3 py-2.5 transition hover:bg-amber-50">
-                  <svg class="mt-0.5 h-5 w-5 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
-                  </svg>
-                  <span class="group-hover/item:text-amber-700">
-                    <span class="block font-semibold text-stone-900">Каркасные дома</span>
-                    <span class="block text-sm text-stone-500">Строительство каркасных домов под ключ</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <a href="#" class="rounded-md px-3 py-2 transition hover:bg-white/70 hover:text-amber-700">О компании</a>
-          <a href="#" class="rounded-md px-3 py-2 transition hover:bg-white/70 hover:text-amber-700">Контакты</a>
-        </nav>
-
-        <!-- Кнопка + бургер -->
-        <div class="flex items-center gap-3">
-          <a href="tel:+79242207378"
-            class="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-700">
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            Получить консультацию
-          </a>
-          <button id="menu-btn" class="rounded-lg p-2 text-stone-800 transition hover:bg-white/70 lg:hidden"
-            aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
-            <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Мобильное меню -->
-    <div id="mobile-menu" class="hidden border-t border-stone-200 bg-[#f8f5ee] lg:hidden">
-      <nav class="mx-auto max-w-7xl space-y-1 px-4 py-3 text-base font-medium" aria-label="Мобильное меню">
-        <a href="#" class="block rounded-lg px-3 py-2.5 transition hover:bg-white/70">Главная</a>
         <div>
-          <button id="mobile-services-btn"
-            class="flex w-full items-center justify-between rounded-lg px-3 py-2.5 transition hover:bg-white/70"
-            aria-expanded="false">
-            Услуги
-            <svg id="mobile-services-chevron" class="h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
-          </button>
-          <div id="mobile-services" class="hidden space-y-1 pl-3">
-            <a href="#"
-              class="block rounded-lg px-3 py-2 text-sm text-stone-600 transition hover:bg-white/70 hover:text-amber-700">Банные
-              комплексы под ключ</a>
-            <a href="#"
-              class="block rounded-lg px-3 py-2 text-sm text-stone-600 transition hover:bg-white/70 hover:text-amber-700">Бани-бочки</a>
-            <a href="#"
-              class="block rounded-lg px-3 py-2 text-sm text-stone-600 transition hover:bg-white/70 hover:text-amber-700">Банные
-              чаны</a>
-            <a href="#"
-              class="block rounded-lg px-3 py-2 text-sm text-stone-600 transition hover:bg-white/70 hover:text-amber-700">Каркасные
-              дома</a>
-          </div>
+          <div class="font-extrabold tracking-tight">ДОМ ДВ</div>
+          <div class="text-[10px] text-white/60">банные комплексы</div>
         </div>
-        <a href="#" class="block rounded-lg px-3 py-2.5 transition hover:bg-white/70">О компании</a>
-        <a href="#" class="block rounded-lg px-3 py-2.5 transition hover:bg-white/70">Контакты</a>
+      </a> -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm text-white/80">
+        <a href="#home" class="hover:text-gold">Главная</a>
+        <a href="#services" class="hover:text-gold">Услуги</a>
+        <a href="#projects" class="hover:text-gold">Проекты</a>
+        <a href="#benefits" class="hover:text-gold">Преимущества</a>
+        <a href="#about" class="hover:text-gold">О компании</a>
+        <a href="#contacts" class="hover:text-gold">Контакты</a>
       </nav>
+      <a href="tel:+79242207378"
+        class="hidden sm:flex rounded-full border border-gold px-5 py-2.5 text-sm font-semibold hover:bg-gold hover:text-black transition">☎
+        +7 (924) 220-73-78</a>
     </div>
   </header>
 
-  <!-- ============ ПЛЕЙСХОЛДЕР КОНТЕНТА (следующий шаг) ============ -->
   <main>
-    <section class="mx-auto max-w-7xl px-4 py-24 text-center">
-      <h1 class="text-3xl font-bold text-stone-900">Дом ДВ</h1>
-      <p class="mt-4 text-lg text-stone-600">Банные комплексы · Бани-бочки · Банные чаны · Каркасные дома</p>
-      <p class="mt-8 text-sm text-stone-400">Здесь появится основной контент сайта (следующий шаг).</p>
+    <section id="home" class="relative min-h-[680px] flex items-center overflow-hidden">
+      <img src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/images/gallery/project-1_0.png"
+        class="absolute inset-0 w-full h-full object-cover" alt="Банные комплексы">
+      <div class="absolute inset-0 hero-overlay"></div>
+      <div class="absolute inset-0 bg-black/20"></div>
+
+      <div class="container-xl relative z-10 pt-28 pb-20">
+        <div class="max-w-2xl">
+          <span
+            class="inline-flex border border-gold/50 text-gold rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider">Производство
+            в Хабаровске с 2014 года</span>
+          <h1 class="mt-6 text-5xl sm:text-6xl lg:text-7xl font-black leading-[.95] tracking-tight">
+            ОРГАНИЗАЦИЯ БАННЫХ<br><span class="text-gold">КОМПЛЕКСОВ НА ВАШЕМ УЧАСТКЕ</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg text-white/75 leading-relaxed">
+            Собственное производство бань-бочек в г.Хабаровске. Продажа банных чанов. Строительство загородных жилых
+            домов. Комплексное ландшафтное проектирование.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#calculator"
+              class="gold-gradient text-black font-bold px-7 py-4 rounded-lg hover:brightness-110 transition">▣ &nbsp;
+              ОТПРАВИТЬ ЗАЯВКУ</a>
+            <a href="tel:+79242207378"
+              class="border border-gold text-white font-bold px-7 py-4 rounded-lg hover:bg-gold hover:text-black transition">☎
+              &nbsp; ПОЗВОНИТЬ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-20">
+      <div class="container-xl">
+        <div class="text-center">
+          <div class="section-label">НАШИ НАПРАВЛЕНИЯ</div>
+          <h2 class="text-4xl sm:text-5xl font-black mt-3">БАНИ • ЧАНЫ • ДОМА</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+          <article class="card rounded-xl overflow-hidden group">
+            <img src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/directions-1.png"
+              class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" alt="Бани-бочки">
+            <div class="p-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gold text-black flex items-center justify-center -mt-12 mb-5 relative text-xl">
+                ♨</div>
+              <h3 class="font-extrabold text-xl">БАНИ-БОЧКИ</h3>
+              <p class="mt-3 text-sm text-white/55 leading-6">Производство бань-бочек в г. Хабаровске.</p>
+              <a href="#calculator" class="inline-block mt-5 text-gold text-sm font-bold">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="card rounded-xl overflow-hidden group">
+            <img src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/directions-2.png"
+              class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" alt="Банные чаны">
+            <div class="p-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gold text-black flex items-center justify-center -mt-12 mb-5 relative text-xl">
+                ⌂</div>
+              <h3 class="font-extrabold text-xl">БАННЫЕ ЧАНЫ</h3>
+              <p class="mt-3 text-sm text-white/55 leading-6">Продажа банных чанов — малые, большие, средние.</p>
+              <a href="#calculator" class="inline-block mt-5 text-gold text-sm font-bold">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="card rounded-xl overflow-hidden group">
+            <img src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/directions-3.png"
+              class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" alt="Дома и коттеджи">
+            <div class="p-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gold text-black flex items-center justify-center -mt-12 mb-5 relative text-xl">
+                ⚒</div>
+              <h3 class="font-extrabold text-xl">ДОМА И КОТТЕДЖИ</h3>
+              <p class="mt-3 text-sm text-white/55 leading-6">Строительство загородных жилых домов и коттеджей.</p>
+              <a href="#calculator" class="inline-block mt-5 text-gold text-sm font-bold">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="card rounded-xl overflow-hidden group">
+            <img src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/directions-4.png"
+              class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" alt="Банные комплексы под ключ">
+            <div class="p-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gold text-black flex items-center justify-center -mt-12 mb-5 relative text-xl">
+                ▥</div>
+              <h3 class="font-extrabold text-xl">КОМПЛЕКСЫ ПОД КЛЮЧ</h3>
+              <p class="mt-3 text-sm text-white/55 leading-6">Организация банных комплексов: баня, чан, дом.</p>
+              <a href="#calculator" class="inline-block mt-5 text-gold text-sm font-bold">Подробнее →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20">
+      <div
+        class="container-xl rounded-2xl border border-white/10 bg-[#2E3E31] px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center lg:border-r border-white/10">
+          <div class="text-4xl font-black text-gold">10+</div>
+          <div class="mt-1 text-xs text-white/55 uppercase">лет на рынке</div>
+        </div>
+        <div class="text-center lg:border-r border-white/10">
+          <div class="text-4xl font-black text-gold">2014</div>
+          <div class="mt-1 text-xs text-white/55 uppercase">год основания производства</div>
+        </div>
+        <div class="text-center lg:border-r border-white/10">
+          <div class="text-4xl font-black text-gold">270</div>
+          <div class="mt-1 text-xs text-white/55 uppercase">семей въехали в новые дома за год</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-black text-gold">30+</div>
+          <div class="mt-1 text-xs text-white/55 uppercase">моделей банных чанов</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 border-y border-white/5">
+      <div class="container-xl">
+        <div class="text-center">
+          <div class="section-label">НАМ ДОВЕРЯЮТ БОЛЬШЕ 10 ЛЕТ</div>
+          <h2 class="text-4xl font-black mt-3">ПОЧЕМУ ВЫБИРАЮТ НАС</h2>
+        </div>
+        <div class="grid md:grid-cols-4 gap-10 mt-14">
+          <div class="text-center">
+            <div
+              class="mx-auto w-14 h-14 rounded-full border border-gold text-gold flex items-center justify-center font-bold">
+              01</div>
+            <h3 class="mt-5 font-bold text-gold">ПРОИЗВОДСТВО С 2014 ГОДА</h3>
+            <p class="mt-3 text-sm text-white/55">Собственное производство бань-бочек в г. Хабаровске с 2014 года.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="mx-auto w-14 h-14 rounded-full border border-gold text-gold flex items-center justify-center font-bold">
+              02</div>
+            <h3 class="mt-5 font-bold text-gold">ВЫСТАВОЧНАЯ ПЛОЩАДКА</h3>
+            <p class="mt-3 text-sm text-white/55">Готовые бани можно посмотреть в удобной локации города.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="mx-auto w-14 h-14 rounded-full border border-gold text-gold flex items-center justify-center font-bold">
+              03</div>
+            <h3 class="mt-5 font-bold text-gold">ТЕХНОЛОГИЯ «БАНЯ-ИЗБУШКА»</h3>
+            <p class="mt-3 text-sm text-white/55">Запатентованная технология, сертификаты качества и гарантия.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="mx-auto w-14 h-14 rounded-full border border-gold text-gold flex items-center justify-center font-bold">
+              04</div>
+            <h3 class="mt-5 font-bold text-gold">ДОСТАВКА В РЕГИОНЫ ДФО</h3>
+            <p class="mt-3 text-sm text-white/55">Доставка во все регионы Дальнего Востока.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20">
+      <div class="container-xl">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <div class="section-label">ПОРТФОЛИО</div>
+            <h2 class="text-4xl font-black mt-3">НАШИ ПРОЕКТЫ</h2>
+          </div>
+          <a href="https://xn--b1adlqilgi.xn--p1ai/projects"
+            class="hidden sm:block border border-gold text-gold px-5 py-3 rounded-lg text-sm font-bold">Смотреть все
+            проекты</a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+          <img class="h-64 w-full object-cover rounded-xl border border-white/10"
+            src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/images/gallery/project-1_0.png" alt="Наш проект">
+          <img class="h-64 w-full object-cover rounded-xl border border-white/10"
+            src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/images/gallery/project-2_0.png" alt="Наш проект">
+          <img class="h-64 w-full object-cover rounded-xl border border-white/10"
+            src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/images/gallery/project-3_0.png" alt="Наш проект">
+          <img class="h-64 w-full object-cover rounded-xl border border-white/10"
+            src="https://xn--b1adlqilgi.xn--p1ai/sites/default/files/images/gallery/project-4_0.png" alt="Наш проект">
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits" class="pb-20">
+      <div class="container-xl grid lg:grid-cols-3 gap-5">
+        <div class="card rounded-2xl p-7">
+          <div class="section-label">ПОЧЕМУ ВЫБИРАЮТ НАС</div>
+          <div class="space-y-6 mt-7">
+            <div>
+              <h3 class="font-bold">Собственное производство</h3>
+              <p class="text-sm text-white/50 mt-1">Бани-бочки собственного производства в Хабаровске с 2014 года.</p>
+            </div>
+            <div>
+              <h3 class="font-bold">Технология «Баня-Избушка»</h3>
+              <p class="text-sm text-white/50 mt-1">Запатентованная технология, сертификаты качества и гарантия.</p>
+            </div>
+            <div>
+              <h3 class="font-bold">Доставка в регионы ДФО</h3>
+              <p class="text-sm text-white/50 mt-1">Привезём и установим баню в любом регионе Дальнего Востока.</p>
+            </div>
+            <div>
+              <h3 class="font-bold">Бизнесу</h3>
+              <p class="text-sm text-white/50 mt-1">Базы отдыха «под ключ» с расчётом финансовой модели.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="calculator"
+          class="rounded-2xl p-8 min-h-[390px] flex flex-col justify-center text-center bg-[linear-gradient(rgba(30,22,12,.75),rgba(30,22,12,.85)),url('https://xn--b1adlqilgi.xn--p1ai/sites/default/files/images/gallery/project-5_0.png')] bg-cover bg-center border border-gold/20">
+          <div class="section-label">ОСТАВЬТЕ ЗАЯВКУ</div>
+          <h2 class="text-3xl font-black mt-3">ПОДБЕРЕМ ПРОЕКТ ПОД ВАШИ НУЖДЫ</h2>
+          <p class="mt-4 text-white/70">Оставьте заявку — и мы свяжемся с вами, подскажем по стоимости и срокам.</p>
+          <form class="mt-7 flex flex-col gap-3"
+            onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами для расчёта.');">
+            <input required
+              class="bg-black/40 border border-white/20 rounded-lg px-4 py-3 outline-none focus:border-gold"
+              placeholder="Ваше имя">
+            <input required type="tel"
+              class="bg-black/40 border border-white/20 rounded-lg px-4 py-3 outline-none focus:border-gold"
+              placeholder="Телефон">
+            <button class="gold-gradient text-black font-bold rounded-lg py-3.5">ОТПРАВИТЬ ЗАЯВКУ</button>
+          </form>
+        </div>
+
+        <div id="contacts" class="card rounded-2xl p-7">
+          <div class="section-label">СВЯЖИТЕСЬ С НАМИ</div>
+          <div class="mt-7 space-y-5 text-sm">
+            <a href="tel:+79242207378" class="flex gap-3"><span class="text-gold">☎</span><span>+7 (924)
+                220-73-78</span></a>
+            <a href="tel:+79242015015" class="flex gap-3"><span
+                class="text-gold">✉</span><span>+7 (924) 201-50-15</span></a>
+            <div class="flex gap-3"><span class="text-gold">⌖</span><span>680031, г. Хабаровск, ул. Карла Маркса,
+                144а/2</span></div>
+            <div class="flex gap-3"><span class="text-gold">◷</span><span>Выставочная площадка в городе</span></div>
+          </div>
+          <div class="flex gap-3 mt-8">
+            <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-black transition"
+              href="https://wa.me/79242207378" target="_blank" rel="noopener">WA</a>
+            <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-black transition"
+              href="https://t.me/bathhouse27" target="_blank" rel="noopener">TG</a>
+            <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-black transition"
+              href="tel:+79242207378">☎</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-    const servicesBtn = document.getElementById('mobile-services-btn');
-    const mobileServices = document.getElementById('mobile-services');
-    const servicesChevron = document.getElementById('mobile-services-chevron');
+  <footer class="border-t border-white/10 py-8">
+    <div class="container-xl flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-white/40">
+      <div class="flex items-center gap-3"><span class="text-gold text-2xl">⌂</span>
+        <div><b class="text-white">ДОМ ДВ</b>
+          <div>банные комплексы</div>
+        </div>
+      </div>
+      <div>© 2026 Дом ДВ. Все права защищены</div>
+      <div class="flex gap-5"><a href="#">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
 
-    menuBtn.addEventListener('click', () => {
-      const hidden = mobileMenu.classList.toggle('hidden');
-      iconOpen.classList.toggle('hidden', !hidden);
-      iconClose.classList.toggle('hidden', hidden);
-      menuBtn.setAttribute('aria-expanded', String(!hidden));
-    });
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    class="fixed bottom-6 right-6 w-12 h-12 rounded-full gold-gradient text-black font-bold shadow-xl">↑</button>
 
-    servicesBtn.addEventListener('click', () => {
-      const hidden = mobileServices.classList.toggle('hidden');
-      servicesBtn.setAttribute('aria-expanded', String(!hidden));
-      servicesChevron.classList.toggle('rotate-180', !hidden);
-    });
-  </script>
 </body>
 
 </html>
