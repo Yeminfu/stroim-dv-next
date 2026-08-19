@@ -1,8 +1,9 @@
-export default async function Page() {
+export default async function Page(params: any) {
   return (
     <>
+      <pre>{JSON.stringify({ params }, null, 2)}</pre>
       {/* Why us */}
-      <section id="about" className="py-20 border-y border-white/5">
+      <section className="py-20 border-y border-white/5">
         <div className="container-xl">
           <div className="text-center">
             <div className="section-label">НАМ ДОВЕРЯЮТ БОЛЬШЕ 10 ЛЕТ</div>

@@ -77,6 +77,7 @@ const BATH_TYPES = [
     text: "Бани квадратной формы с увеличенной вместимостью. Просторная парная и удобная планировка для компании друзей или большой семьи.",
     // img: `/images/types-2.png`,
     img: `/images/banya-types/quadro.png`,
+    src: "/bathhouse/quadro",
     alt: "Квадро бани",
   },
   {
