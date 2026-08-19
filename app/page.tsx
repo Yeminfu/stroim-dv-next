@@ -3,18 +3,6 @@ import ContactForm from "./components/contact-form";
 
 const SITE = "https://xn--b1adlqilgi.xn--p1ai";
 
-const LOGO_SRC = "/logo.jpg";
-
-const NAV_LINKS = [
-  { href: "#home", label: "Главная" },
-  { href: "#services", label: "Услуги" },
-  { href: "#bath-types", label: "Бани" },
-  { href: "#projects", label: "Проекты" },
-  { href: "#benefits", label: "Преимущества" },
-  { href: "#about", label: "О компании" },
-  { href: "#contacts", label: "Контакты" },
-];
-
 const SERVICES = [
   {
     icon: "\u2668",
@@ -132,8 +120,6 @@ const BENEFITS = [
 export default function Home() {
   return (
     <>
-      
-
       <main>
         {/* Hero */}
         <section
@@ -159,9 +145,7 @@ export default function Home() {
               <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-black leading-[.95] tracking-tight">
                 ОРГАНИЗАЦИЯ БАННЫХ
                 <br />
-                <span className="text-gold">
-                  КОМПЛЕКСОВ НА ВАШЕМ УЧАСТКЕ
-                </span>
+                <span className="text-gold">КОМПЛЕКСОВ НА ВАШЕМ УЧАСТКЕ</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg text-white/75 leading-relaxed">
                 Собственное производство бань-бочек в г.Хабаровске. Продажа
@@ -182,6 +166,43 @@ export default function Home() {
                   ☎ &nbsp; ПОЗВОНИТЬ
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Bath Types */}
+        <section id="bath-types" className="py-20">
+          <div className="container-xl">
+            <div className="text-center">
+              <div className="section-label">КАКИЕ БАНИ МЫ ИЗГОТАВЛИВАЕМ</div>
+              <h2 className="text-4xl sm:text-5xl font-black mt-3">
+                ТИПЫ БАНЬ
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+              {BATH_TYPES.map((b) => (
+                <a
+                  key={b.title}
+                  href="#"
+                  className="card rounded-xl overflow-hidden group block"
+                >
+                  <div className="relative h-56 w-full overflow-hidden">
+                    <Image
+                      src={b.img}
+                      alt={b.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-extrabold text-xl">{b.title}</h3>
+                    <p className="mt-3 text-sm text-white/55 leading-6">
+                      {b.text}
+                    </p>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -231,43 +252,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Bath Types */}
-        <section id="bath-types" className="py-20">
-          <div className="container-xl">
-            <div className="text-center">
-              <div className="section-label">КАКИЕ БАНИ МЫ ИЗГОТАВЛИВАЕМ</div>
-              <h2 className="text-4xl sm:text-5xl font-black mt-3">
-                ТИПЫ БАНЬ
-              </h2>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
-              {BATH_TYPES.map((b) => (
-                <a
-                  key={b.title}
-                  href="#"
-                  className="card rounded-xl overflow-hidden group block"
-                >
-                  <div className="relative h-56 w-full overflow-hidden">
-                    <Image
-                      src={b.img}
-                      alt={b.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-extrabold text-xl">{b.title}</h3>
-                    <p className="mt-3 text-sm text-white/55 leading-6">
-                      {b.text}
-                    </p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Stats */}
         <section className="pb-20">
           <div className="container-xl rounded-2xl border border-white/10 bg-[#2E3E31] px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -290,9 +274,7 @@ export default function Home() {
           <div className="container-xl">
             <div className="text-center">
               <div className="section-label">НАМ ДОВЕРЯЮТ БОЛЬШЕ 10 ЛЕТ</div>
-              <h2 className="text-4xl font-black mt-3">
-                ПОЧЕМУ ВЫБИРАЮТ НАС
-              </h2>
+              <h2 className="text-4xl font-black mt-3">ПОЧЕМУ ВЫБИРАЮТ НАС</h2>
             </div>
             <div className="grid md:grid-cols-4 gap-10 mt-14">
               {ADVANTAGES.map((a) => (
@@ -325,7 +307,10 @@ export default function Home() {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
               {PROJECTS.map((src, i) => (
-                <div key={i} className="relative h-64 w-full overflow-hidden rounded-xl border border-white/10">
+                <div
+                  key={i}
+                  className="relative h-64 w-full overflow-hidden rounded-xl border border-white/10"
+                >
                   <Image
                     src={src}
                     alt="Наш проект"
@@ -381,9 +366,7 @@ export default function Home() {
                 </a>
                 <div className="flex gap-3">
                   <span className="text-gold">⌖</span>
-                  <span>
-                    680031, г. Хабаровск, ул. Карла Маркса, 144а/2
-                  </span>
+                  <span>680031, г. Хабаровск, ул. Карла Маркса, 144а/2</span>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-gold">◷</span>
@@ -418,7 +401,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
     </>
   );
 }
