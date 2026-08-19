@@ -4,52 +4,108 @@ import ContactForm from "../../../components/contact-form";
 
 const MODELS = [
   {
-    name: "Квадро 3",
+    name: "Квадро Мини 2 м",
+    img: "/images/bathhouse/quadro/kvadro2m.png",
+    size: "2 м",
+    ceiling: "2,2 м",
+    sections: [
+      { label: "Парная", value: "1,8 м" },
+    ],
+    kosek: "0,5 м",
+    price: "от 270 000 ₽",
+    oldPrice: "300 000 ₽",
+  },
+  {
+    name: "Квадро Мини 3 м",
+    img: "/images/bathhouse/quadro/kvadro3m.png",
     size: "3 м",
-    area: "4,5 м²",
-    specs: [
-      { label: "Размер", value: "3 × 1,5 м" },
-      { label: "Высота потолка", value: "2,1 м" },
-      { label: "Парная", value: "до 2 чел." },
+    ceiling: "2,2 м",
+    sections: [
+      { label: "Парная", value: "2,2 м" },
     ],
-    price: "от 185 000 ₽",
-    oldPrice: "210 000 ₽",
+    kosek: "0,5 м",
+    price: "от 285 000 ₽",
+    oldPrice: "335 000 ₽",
   },
   {
-    name: "Квадро 4",
+    name: "Квадро Стандарт 4 м",
+    img: "/images/bathhouse/quadro/kvadro3m_1.png",
     size: "4 м",
-    area: "6 м²",
-    specs: [
-      { label: "Размер", value: "4 × 1,5 м" },
-      { label: "Высота потолка", value: "2,1 м" },
-      { label: "Парная", value: "до 3 чел." },
+    ceiling: "2,2 м",
+    sections: [
+      { label: "Парная", value: "2,2 м" },
+      { label: "Раздевалка", value: "1,2 м" },
     ],
-    price: "от 240 000 ₽",
-    oldPrice: "275 000 ₽",
-  },
-  {
-    name: "Квадро 5",
-    size: "5 м",
-    area: "7,5 м²",
-    specs: [
-      { label: "Размер", value: "5 × 1,5 м" },
-      { label: "Высота потолка", value: "2,1 м" },
-      { label: "Парная", value: "до 4 чел." },
-    ],
-    price: "от 310 000 ₽",
-    oldPrice: "350 000 ₽",
-  },
-  {
-    name: "Квадро 6 Макси",
-    size: "6 м",
-    area: "9 м²",
-    specs: [
-      { label: "Размер", value: "6 × 1,5 м" },
-      { label: "Высота потолка", value: "2,2 м" },
-      { label: "Парная", value: "до 4 чел." },
-    ],
+    kosek: "0,5 м",
     price: "от 385 000 ₽",
-    oldPrice: "430 000 ₽",
+    oldPrice: "435 000 ₽",
+  },
+  {
+    name: "Квадро Комфорт 4,5 м",
+    img: "/images/bathhouse/quadro/kvadro_komfort45.png",
+    size: "4,5 м",
+    ceiling: "2,2 м",
+    sections: [
+      { label: "Парная", value: "2 м" },
+      { label: "Раздевалка", value: "1,5 м" },
+    ],
+    kosek: "0,5 м",
+    price: "от 405 000 ₽",
+    oldPrice: "455 000 ₽",
+  },
+  {
+    name: "Квадро Макси 5 м",
+    img: "/images/bathhouse/quadro/kvadmaks5.png",
+    size: "5 м",
+    ceiling: "2,2 м",
+    sections: [
+      { label: "Парная", value: "2,4 м" },
+      { label: "Раздевалка", value: "2 м" },
+    ],
+    kosek: "0,5 м",
+    price: "от 490 000 ₽",
+    oldPrice: "540 000 ₽",
+  },
+  {
+    name: "Квадро Макси 6 м",
+    img: "/images/bathhouse/quadro/kvadro_maksi5_0.png",
+    size: "5,8 м",
+    ceiling: "2,2 м",
+    sections: [
+      { label: "Парная", value: "2,1 м" },
+      { label: "Раздевалка", value: "1,5 м" },
+      { label: "Помывочная", value: "1,2 м" },
+    ],
+    kosek: "0,5 м",
+    price: "от 535 000 ₽",
+    oldPrice: "577 000 ₽",
+  },
+  {
+    name: "Квадро с боковым входом 4,5 м",
+    img: "/images/bathhouse/quadro/kvadro_bok1_0.png",
+    size: "4,5 м",
+    ceiling: "2,45 м",
+    sections: [
+      { label: "Предбанник", value: "1,9 м" },
+      { label: "Парная", value: "1,8 м" },
+    ],
+    kosek: "0,35 м",
+    price: "от 515 000 ₽",
+    oldPrice: "556 000 ₽",
+  },
+  {
+    name: "Квадро с боковым входом 6 м",
+    img: "/images/bathhouse/quadro/kvadro_bok2_0.png",
+    size: "6 м",
+    ceiling: "2,45 м",
+    sections: [
+      { label: "Предбанник", value: "2 м" },
+      { label: "Помывочная", value: "1,2 м" },
+      { label: "Парная", value: "1,7 м" },
+    ],
+    kosek: "0,35 м",
+    price: "от 640 000 ₽",
+    oldPrice: "690 000 ₽",
   },
 ];
 
@@ -254,6 +310,14 @@ export default function QuadroPage() {
           <div className="grid sm:grid-cols-2 gap-5 mt-12">
             {MODELS.map((m) => (
               <div key={m.name} className="card rounded-2xl overflow-hidden">
+                <div className="relative h-48 w-full bg-white/5 overflow-hidden">
+                  <Image
+                    src={m.img}
+                    alt={m.name}
+                    fill
+                    className="object-contain p-4"
+                  />
+                </div>
                 <div className="p-7">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -263,7 +327,7 @@ export default function QuadroPage() {
                           <span className="text-gold">■</span> {m.size}
                         </span>
                         <span className="inline-flex items-center gap-1">
-                          <span className="text-gold">⌂</span> {m.area}
+                          <span className="text-gold">⌂</span> {m.ceiling}
                         </span>
                       </div>
                     </div>
@@ -274,7 +338,7 @@ export default function QuadroPage() {
                   </div>
 
                   <ul className="mt-6 space-y-2">
-                    {m.specs.map((s) => (
+                    {m.sections.map((s) => (
                       <li
                         key={s.label}
                         className="flex justify-between text-sm border-b border-white/5 pb-2"
@@ -283,6 +347,10 @@ export default function QuadroPage() {
                         <span className="font-medium">{s.value}</span>
                       </li>
                     ))}
+                    <li className="flex justify-between text-sm border-b border-white/5 pb-2">
+                      <span className="text-white/50">Козырёк</span>
+                      <span className="font-medium">{m.kosek}</span>
+                    </li>
                   </ul>
 
                   <a
