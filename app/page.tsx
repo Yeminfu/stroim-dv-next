@@ -103,7 +103,7 @@ export default function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src={`/images/gallery/project-1_0.png`}
+              src={`/images/gallery/bgbanya.jpeg`}
               fill
               className="object-cover"
               alt="Банные комплексы"
