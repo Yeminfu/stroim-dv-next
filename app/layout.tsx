@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+
 import "./globals.css";
+import ScrollToTop from "./components/scroll-to-top";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -64,6 +66,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
         </header>
         {children}
+
+        {/* Footer */}
+        <footer className="border-t border-white/10 py-8">
+          <div className="container-xl flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-white/40">
+            <div className="flex items-center gap-3">
+              <span className="text-gold text-2xl">⌂</span>
+              <div>
+                <b className="text-white">ДОМ ДВ</b>
+                <div>банные комплексы</div>
+              </div>
+            </div>
+            <div>© 2026 Дом ДВ. Все права защищены</div>
+            <div className="flex gap-5">
+              <a href="#">Политика конфиденциальности</a>
+              <a href="#">Пользовательское соглашение</a>
+            </div>
+          </div>
+        </footer>
+
+        <ScrollToTop />
       </body>
     </html>
   );
