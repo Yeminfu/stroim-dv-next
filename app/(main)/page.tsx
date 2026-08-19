@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ContactForm from "./components/contact-form";
+import ContactForm from "../components/contact-form";
 
 const SITE = "https://xn--b1adlqilgi.xn--p1ai";
 
