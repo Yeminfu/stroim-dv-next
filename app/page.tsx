@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContactForm from "./components/contact-form";
 import ScrollToTop from "./components/scroll-to-top";
 
@@ -107,16 +108,22 @@ export default function Home() {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-30">
         <div className="container-xl flex items-center justify-between py-5">
-          <img
-            src={LOGO_SRC}
-            alt="ДОМ ДВ"
+          <div
             style={{
-              maxHeight: 60,
               background: "#2E3E3194",
               padding: 10,
               borderRadius: 10,
+              lineHeight: 0,
             }}
-          />
+          >
+            <Image
+              src={LOGO_SRC}
+              alt="ДОМ ДВ"
+              width={277}
+              height={95}
+              className="h-[40px] w-auto"
+            />
+          </div>
           <nav className="hidden lg:flex items-center gap-8 text-sm text-white/80">
             {NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} className="hover:text-gold">
@@ -139,11 +146,14 @@ export default function Home() {
           id="home"
           className="relative min-h-[680px] flex items-center overflow-hidden"
         >
-          <img
-            src={`${SITE}/sites/default/files/images/gallery/project-1_0.png`}
-            className="absolute inset-0 w-full h-full object-cover"
-            alt="Банные комплексы"
-          />
+          <div className="absolute inset-0">
+            <Image
+              src={`${SITE}/sites/default/files/images/gallery/project-1_0.png`}
+              fill
+              className="object-cover"
+              alt="Банные комплексы"
+            />
+          </div>
           <div className="absolute inset-0 hero-overlay" />
           <div className="absolute inset-0 bg-black/20" />
 
@@ -198,11 +208,14 @@ export default function Home() {
                   key={s.title}
                   className="card rounded-xl overflow-hidden group"
                 >
-                  <img
-                    src={s.img}
-                    alt={s.alt}
-                    className="h-48 w-full object-cover group-hover:scale-105 transition duration-500"
-                  />
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={s.img}
+                      alt={s.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-500"
+                    />
+                  </div>
                   <div className="p-6">
                     <div className="w-12 h-12 rounded-full bg-gold text-black flex items-center justify-center -mt-12 mb-5 relative text-xl">
                       {s.icon}
@@ -281,12 +294,14 @@ export default function Home() {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
               {PROJECTS.map((src, i) => (
-                <img
-                  key={i}
-                  className="h-64 w-full object-cover rounded-xl border border-white/10"
-                  src={src}
-                  alt="Наш проект"
-                />
+                <div key={i} className="relative h-64 w-full overflow-hidden rounded-xl border border-white/10">
+                  <Image
+                    src={src}
+                    alt="Наш проект"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               ))}
             </div>
           </div>
