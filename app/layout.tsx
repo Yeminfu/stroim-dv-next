@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import "./globals.css";
 import ScrollToTop from "./components/scroll-to-top";
+import Link from "next/link";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,13 +43,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 lineHeight: 0,
               }}
             >
-              <Image
-                src={LOGO_SRC}
-                alt="ДОМ ДВ"
-                width={277}
-                height={95}
-                className="h-[40px] w-auto"
-              />
+              <Link href={"/"}>
+                {" "}
+                <Image
+                  src={LOGO_SRC}
+                  alt="ДОМ ДВ"
+                  width={277}
+                  height={95}
+                  className="h-[40px] w-auto"
+                />
+              </Link>
             </div>
             <nav className="hidden lg:flex items-center gap-8 text-sm text-white/80">
               {NAV_LINKS.map((link) => (
@@ -65,6 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </a>
           </div>
         </header>
+        <main></main>
         {children}
 
         {/* Footer */}
