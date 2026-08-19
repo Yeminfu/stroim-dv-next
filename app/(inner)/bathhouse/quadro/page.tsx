@@ -76,6 +76,39 @@ const ADVANTAGES = [
   },
 ];
 
+const STANDARD_PKG = [
+  {
+    icon: "🏗",
+    title: "Корпус из профилированной древесины",
+    desc: "Просушенная до 10–12% влажности древесина породы ель/сосна. Обручи из нержавеющей стали с регулируемыми замками.",
+  },
+  {
+    icon: "🚪",
+    title: "Двери на выбор",
+    desc: "Входная и дверь в парное отделение — комбинированные или сплошные, на ваш выбор.",
+  },
+  {
+    icon: "♨",
+    title: "Печь-каменка в сборе",
+    desc: "Дровяная печь российского производства с дымоходом. Защита от нагрева из минерита и асбокартона за печью.",
+  },
+  {
+    icon: "🛋",
+    title: "Две лавочки в предбаннике",
+    desc: "Удобные лавки для отдыха перед парной или после неё.",
+  },
+  {
+    icon: "🚿",
+    title: "Трапики и подиум",
+    desc: "Деревянные трапики во всех отделениях, деревянный подиум под печь, сливное отверстие для воды в парной.",
+  },
+  {
+    icon: "🎨",
+    title: "Крыша и отделка",
+    desc: "Крыша из гибкой кровли — цвет на выбор. Внешняя обработка антисептиком на основе лака-пропитки — цвет на выбор.",
+  },
+];
+
 const OTHER_TYPES = [
   {
     title: "Бани-бочки",
@@ -179,6 +212,31 @@ export default function QuadroPage() {
                 </div>
                 <h3 className="mt-5 font-bold text-gold">{a.title}</h3>
                 <p className="mt-3 text-sm text-white/55 leading-6">{a.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Standard Package */}
+      <section className="py-16">
+        <div className="container-xl">
+          <div className="text-center">
+            <div className="section-label">В СТАНДАРТЕ</div>
+            <h2 className="text-3xl font-black mt-3">СТАНДАРТНАЯ КОМПЛЕКТАЦИЯ</h2>
+            <p className="mt-3 text-white/50 max-w-2xl mx-auto">
+              Каждая баня собирается из просушенной до 10–12% влажности профилированной древесины (ель/сосна) и проходит контроль качества.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+            {STANDARD_PKG.map((item) => (
+              <div key={item.title} className="card rounded-xl p-6">
+                <div className="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center text-lg">
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 font-bold text-sm">{item.title}</h3>
+                <p className="mt-2 text-sm text-white/50 leading-6">{item.desc}</p>
               </div>
             ))}
           </div>
