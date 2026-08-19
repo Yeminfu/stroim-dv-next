@@ -3,8 +3,6 @@ import ContactForm from "./components/contact-form";
 
 const SITE = "https://xn--b1adlqilgi.xn--p1ai";
 
-<<<<<<< Updated upstream
-=======
 const LOGO_SRC = "/logo.jpg";
 
 const NAV_LINKS = [
@@ -17,7 +15,6 @@ const NAV_LINKS = [
   { href: "#contacts", label: "Контакты" },
 ];
 
->>>>>>> Stashed changes
 const SERVICES = [
   {
     icon: "\u2668",
