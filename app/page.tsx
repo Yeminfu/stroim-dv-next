@@ -77,10 +77,10 @@ const ADVANTAGES = [
 ];
 
 const PROJECTS = [
-  `${SITE}/sites/default/files/images/gallery/project-1_0.png`,
-  `${SITE}/sites/default/files/images/gallery/project-2_0.png`,
-  `${SITE}/sites/default/files/images/gallery/project-3_0.png`,
-  `${SITE}/sites/default/files/images/gallery/project-4_0.png`,
+  `/images/gallery/project-1_0.png`,
+  `/images/gallery/project-2_0.png`,
+  `/images/gallery/project-3_0.png`,
+  `/images/gallery/project-4_0.png`,
 ];
 
 const BENEFITS = [
@@ -148,7 +148,7 @@ export default function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src={`${SITE}/sites/default/files/images/gallery/project-1_0.png`}
+              src={`/images/gallery/project-1_0.png`}
               fill
               className="object-cover"
               alt="Банные комплексы"
