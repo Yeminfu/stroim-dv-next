@@ -6,89 +6,89 @@ const MODELS = [
   {
     name: "Квадро 3",
     size: "3 м",
-    area: "4,5 м\u00B2",
+    area: "4,5 м²",
     specs: [
-      { label: "Размер", value: "3 \u00D7 1,5 м" },
+      { label: "Размер", value: "3 × 1,5 м" },
       { label: "Высота потолка", value: "2,1 м" },
       { label: "Парная", value: "до 2 чел." },
     ],
-    price: "от 185 000 \u20BD",
-    oldPrice: "210 000 \u20BD",
+    price: "от 185 000 ₽",
+    oldPrice: "210 000 ₽",
   },
   {
     name: "Квадро 4",
     size: "4 м",
-    area: "6 м\u00B2",
+    area: "6 м²",
     specs: [
-      { label: "Размер", value: "4 \u00D7 1,5 м" },
+      { label: "Размер", value: "4 × 1,5 м" },
       { label: "Высота потолка", value: "2,1 м" },
       { label: "Парная", value: "до 3 чел." },
     ],
-    price: "от 240 000 \u20BD",
-    oldPrice: "275 000 \u20BD",
+    price: "от 240 000 ₽",
+    oldPrice: "275 000 ₽",
   },
   {
     name: "Квадро 5",
     size: "5 м",
-    area: "7,5 м\u00B2",
+    area: "7,5 м²",
     specs: [
-      { label: "Размер", value: "5 \u00D7 1,5 м" },
+      { label: "Размер", value: "5 × 1,5 м" },
       { label: "Высота потолка", value: "2,1 м" },
       { label: "Парная", value: "до 4 чел." },
     ],
-    price: "от 310 000 \u20BD",
-    oldPrice: "350 000 \u20BD",
+    price: "от 310 000 ₽",
+    oldPrice: "350 000 ₽",
   },
   {
     name: "Квадро 6 Макси",
     size: "6 м",
-    area: "9 м\u00B2",
+    area: "9 м²",
     specs: [
-      { label: "Размер", value: "6 \u00D7 1,5 м" },
+      { label: "Размер", value: "6 × 1,5 м" },
       { label: "Высота потолка", value: "2,2 м" },
       { label: "Парная", value: "до 4 чел." },
     ],
-    price: "от 385 000 \u20BD",
-    oldPrice: "430 000 \u20BD",
+    price: "от 385 000 ₽",
+    oldPrice: "430 000 ₽",
   },
 ];
 
 const ADVANTAGES = [
   {
-    icon: "\u25B2",
+    icon: "▲",
     title: "Компактность",
-    text: "Квадратная форма позволяет установить баню даже на небольшом участке. Минимальная площадь для размещения \u2014 от 6 м\u00B2.",
+    text: "Квадратная форма позволяет установить баню даже на небольшом участке. Минимальная площадь для размещения — от 6 м².",
   },
   {
-    icon: "\u2692",
+    icon: "⚒",
     title: "Быстрый монтаж",
-    text: "Собирается на участке за 1\u20132 дня. Не требуется ленточный фундамент \u2014 достаточно столбчатого.",
+    text: "Собирается на участке за 1–2 дня. Не требуется ленточный фундамент — достаточно столбчатого.",
   },
   {
-    icon: "\u2668",
+    icon: "♨",
     title: "Равномерный прогрев",
     text: "Планировка без лишних перегородок обеспечивает равномерную циркуляцию пара и быстрый нагрев.",
   },
   {
-    icon: "\u2764",
+    icon: "❤",
     title: "Эргономичная планировка",
-    text: "Продуманное расположение полков, печи и тамбура. Удобно для семьи из 3\u20134 человек.",
+    text: "Продуманное расположение полков, печи и тамбура. Удобно для семьи из 3–4 человек.",
   },
 ];
 
 const OTHER_TYPES = [
   {
-    title: "\u0411\u0430\u043D\u0438-\u0431\u043E\u0447\u043A\u0438",
+    title: "Бани-бочки",
     img: "/images/banya-types/kruglaya.png",
     href: "/bathhouse/bochki",
   },
   {
-    title: "\u041C\u043E\u0434\u0443\u043B\u044C\u043D\u044B\u0435 \u0431\u0430\u043D\u0438",
+    title: "Модульные бани",
     img: "/images/banya-types/module.png",
     href: "/bathhouse/module",
   },
   {
-    title: "\u0411\u0430\u043D\u0438-\u0438\u0437\u0431\u0443\u0448\u043A\u0438",
+    title: "Бани-избушки",
     img: "/images/banya-types/izbushka.png",
     href: "/bathhouse/izbushka",
   },
@@ -100,21 +100,21 @@ export default function QuadroPage() {
       {/* Breadcrumbs */}
       <div className="container-xl py-4 text-xs text-white/40 flex items-center gap-2">
         <Link href="/" className="hover:text-gold transition">
-          \u0413\u043B\u0430\u0432\u043D\u0430\u044F
+          Главная
         </Link>
         <span>/</span>
         <Link href="/bathhouse" className="hover:text-gold transition">
-          \u0411\u0430\u043D\u0438
+          Бани
         </Link>
         <span>/</span>
-        <span className="text-white/70">\u041A\u0432\u0430\u0434\u0440\u043E \u0431\u0430\u043D\u0438</span>
+        <span className="text-white/70">Квадро бани</span>
       </div>
 
       {/* Hero */}
       <section className="relative h-[360px] overflow-hidden">
         <Image
           src="/images/banya-types/quadro.png"
-          alt="\u041A\u0432\u0430\u0434\u0440\u043E \u0431\u0430\u043D\u0438"
+          alt="Квадро бани"
           fill
           className="object-cover"
         />
@@ -122,10 +122,10 @@ export default function QuadroPage() {
         <div className="absolute bottom-0 left-0 right-0 pb-12">
           <div className="container-xl">
             <h1 className="text-4xl sm:text-5xl font-black">
-              \u041A\u0412\u0410\u0414\u0420\u041E \u0411\u0410\u041D\u0418
+              КВАДРО БАНИ
             </h1>
             <p className="mt-3 max-w-xl text-white/60">
-              \u041A\u043E\u043C\u043F\u0430\u043A\u0442\u043D\u044B\u0435 \u0431\u0430\u043D\u0438 \u043A\u0432\u0430\u0434\u0440\u0430\u0442\u043D\u043E\u0439 \u0444\u043E\u0440\u043C\u044B \u0441 \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u043D\u043E\u0439 \u0432\u043C\u0435\u0441\u0442\u0438\u043C\u043E\u0441\u0442\u044C\u044E. \u0418\u0434\u0435\u0430\u043B\u044C\u043D\u044B \u0434\u043B\u044F \u0441\u0435\u043C\u044C\u0438 \u0438\u0437 3\u20134 \u0447\u0435\u043B\u043E\u0432\u0438\u043A.
+              Компактные бани квадратной формы с увеличенной вместимостью. Идеальны для семьи из 3–4 человек.
             </p>
           </div>
         </div>
@@ -136,26 +136,26 @@ export default function QuadroPage() {
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <div className="section-label">\u041E \u041A\u0412\u0410\u0414\u0420\u041E \u0411\u0410\u041D\u042F\u0425</div>
+              <div className="section-label">О КВАДРО БАНЯХ</div>
               <h2 className="text-3xl font-black mt-3">
-                \u041A\u0432\u0430\u0434\u0440\u0430\u0442\u043D\u0430\u044F \u0444\u043E\u0440\u043C\u0430 \u2014 \u043C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u043F\u043E\u043B\u0435\u0437\u043D\u043E\u0433\u043E \u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0441\u0442\u0432\u0430
+                Квадратная форма — максимум полезного пространства
               </h2>
               <div className="mt-6 space-y-4 text-white/60 leading-relaxed">
                 <p>
-                  \u041A\u0432\u0430\u0434\u0440\u043E-\u0431\u0430\u043D\u0438 \u2014 \u044D\u0442\u043E \u043A\u043E\u043C\u043F\u0430\u043A\u0442\u043D\u044B\u0435 \u0431\u0430\u043D\u0438 \u043A\u0432\u0430\u0434\u0440\u0430\u0442\u043D\u043E\u0439 \u0444\u043E\u0440\u043C\u044B, \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0441\u043E\u0447\u0435\u0442\u0430\u044E\u0442 \u043A\u043E\u043C\u043F\u0430\u043A\u0442\u043D\u043E\u0441\u0442\u044C \u0438 \u043F\u0440\u043E\u0441\u0442\u043E\u0440\u0443 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0438. \u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044F \u043A\u0432\u0430\u0434\u0440\u0430\u0442\u043D\u043E\u0439 \u043A\u043E\u043D\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0438, \u0432\u0441\u0435 \u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0441\u0442\u0432\u043E \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u043E.
+                  Квадро-бани — это компактные бани квадратной формы, которые сочетают компактность и простоту установки. Благодаря квадратной конфигурации, всё пространство используется эффективно.
                 </p>
                 <p>
-                  \u041A\u0432\u0430\u0434\u0440\u043E-\u0431\u0430\u043D\u0438 \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u043E \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0442 \u0434\u043B\u044F \u0443\u0447\u0430\u0441\u0442\u043A\u043E\u0432 \u0441 \u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u043D\u043E\u0439 \u043F\u043B\u043E\u0449\u0430\u0434\u044C\u044E. \u041A\u043E\u043C\u043F\u0430\u043A\u0442\u043D\u0430\u044F \u043F\u043B\u0430\u043D\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442 \u0440\u0430\u0437\u043C\u0435\u0441\u0442\u0438\u0442\u044C \u043F\u0430\u0440\u043D\u0443\u044E, \u043F\u0440\u0435\u0434\u0431\u0430\u043D\u043D\u0443\u044E \u0438 \u0437\u043E\u043D\u0443 \u043E\u0442\u0434\u044B\u0445\u0430 \u0432 \u043E\u0434\u043D\u043E\u043C \u043A\u043E\u043C\u043F\u0430\u043A\u0442\u043D\u043E\u043C \u043A\u043E\u0440\u043F\u0443\u0441\u0435.
+                  Квадро-бани идеально подходят для участков с ограниченной площадью. Компактная планировка позволяет разместить парную, предбанную и зону отдыха в одном компактном корпусе.
                 </p>
                 <p>
-                  \u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u043C \u0438\u0437 \u0441\u0443\u0445\u043E\u0439 \u0434\u0440\u0435\u0432\u0435\u0441\u0438\u043D\u044B 8\u201310% \u0432\u043B\u0430\u0436\u043D\u043E\u0441\u0442\u0438. \u041A\u0430\u0436\u0434\u0430\u044F \u0431\u0430\u043D\u044F \u043F\u0440\u043E\u0445\u043E\u0434\u0438\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044C \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0430 \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442 \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0430.
+                  Производим из сухой древесины 8–10% влажности. Каждая баня проходит контроль качества и получает сертификат.
                 </p>
               </div>
             </div>
             <div className="relative h-[320px] w-full rounded-2xl overflow-hidden border border-white/10">
               <Image
                 src="/images/banya-types/quadro.png"
-                alt="\u041A\u0432\u0430\u0434\u0440\u043E \u0431\u0430\u043D\u044F \u0438\u0437\u043D\u0443\u0442\u0440\u0438"
+                alt="Квадро баня изнутри"
                 fill
                 className="object-cover"
               />
@@ -168,8 +168,8 @@ export default function QuadroPage() {
       <section className="py-16 border-y border-white/5">
         <div className="container-xl">
           <div className="text-center">
-            <div className="section-label">\u041F\u041E\u0427\u0415\u041C\u0423 \u041A\u0412\u0410\u0414\u0420\u041E</div>
-            <h2 className="text-3xl font-black mt-3">\u041F\u0420\u0415\u0418\u041C\u0423\u0429\u0415\u0421\u0422\u0412\u0410</h2>
+            <div className="section-label">ПОЧЕМУ КВАДРО</div>
+            <h2 className="text-3xl font-black mt-3">ПРЕИМУЩЕСТВА</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {ADVANTAGES.map((a) => (
@@ -189,8 +189,8 @@ export default function QuadroPage() {
       <section className="py-16">
         <div className="container-xl">
           <div className="text-center">
-            <div className="section-label">\u041A\u0410\u0422\u0410\u041B\u041E\u0413 \u041C\u041E\u0414\u0415\u041B\u0415\u0419</div>
-            <h2 className="text-3xl font-black mt-3">\u041A\u0412\u0410\u0414\u0420\u041E-\u0411\u0410\u041D\u0418</h2>
+            <div className="section-label">КАТАЛОГ МОДЕЛЕЙ</div>
+            <h2 className="text-3xl font-black mt-3">КВАДРО-БАНИ</h2>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-5 mt-12">
@@ -202,10 +202,10 @@ export default function QuadroPage() {
                       <h3 className="text-2xl font-black">{m.name}</h3>
                       <div className="mt-2 flex items-center gap-3 text-sm text-white/50">
                         <span className="inline-flex items-center gap-1">
-                          <span className="text-gold">\u25A0</span> {m.size}
+                          <span className="text-gold">■</span> {m.size}
                         </span>
                         <span className="inline-flex items-center gap-1">
-                          <span className="text-gold">\u2302</span> {m.area}
+                          <span className="text-gold">⌂</span> {m.area}
                         </span>
                       </div>
                     </div>
@@ -231,7 +231,7 @@ export default function QuadroPage() {
                     href="#calculator"
                     className="mt-6 block text-center gold-gradient text-black font-bold rounded-lg py-3 hover:brightness-110 transition"
                   >
-                    \u0417\u0410\u041A\u0410\u0417\u0410\u0422\u042C
+                    ЗАКАЗАТЬ
                   </a>
                 </div>
               </div>
@@ -245,19 +245,19 @@ export default function QuadroPage() {
         <div className="container-xl">
           <div className="card rounded-2xl p-10 grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="section-label">\u0417\u0410\u041A\u0410\u0416\u0418\u0422\u0415 \u041A\u0412\u0410\u0414\u0420\u041E</div>
+              <div className="section-label">ЗАКАЖИТЕ КВАДРО</div>
               <h2 className="text-3xl font-black mt-3">
-                \u041F\u041E\u0414\u0411\u0415\u0420\u0415\u041C \u041C\u041E\u0414\u0415\u041B\u042C \u041F\u041E\u0414 \u0412\u0410\u0428\u0418 \u041D\u0423\u0416\u0414\u042B
+                ПОДБЕРЕМ МОДЕЛЬ ПОД ВАШИ НУЖДЫ
               </h2>
               <p className="mt-4 text-white/60">
-                \u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u2014 \u043C\u044B \u0441\u0432\u044F\u0436\u0435\u043C\u0441\u044F \u0441 \u0432\u0430\u043C\u0438, \u043F\u043E\u0434\u0441\u043A\u0430\u0436\u0435\u043C \u043F\u043E \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u0438 \u0438 \u0441\u0440\u043E\u043A\u0430\u043C.
+                Оставьте заявку — мы свяжемся с вами, подскажем по стоимости и срокам.
               </p>
               <ContactForm />
             </div>
             <div className="relative h-[280px] w-full rounded-xl overflow-hidden">
               <Image
                 src="/images/banya-types/quadro.png"
-                alt="\u041A\u0432\u0430\u0434\u0440\u043E \u0431\u0430\u043D\u044F"
+                alt="Квадро баня"
                 fill
                 className="object-cover"
               />
@@ -270,8 +270,8 @@ export default function QuadroPage() {
       <section className="py-16 border-t border-white/5">
         <div className="container-xl">
           <div className="text-center">
-            <div className="section-label">\u0414\u0420\u0423\u0413\u0418\u0415 \u0422\u0418\u041F\u042B \u0411\u0410\u041D\u042C</div>
-            <h2 className="text-3xl font-black mt-3">\u0421\u041C\u041E\u0422\u0420\u0415\u0422\u042E \u0422\u0410\u041A\u0416\u0415</h2>
+            <div className="section-label">ДРУГИЕ ТИПЫ БАНЬ</div>
+            <h2 className="text-3xl font-black mt-3">СМОТРИТЕ ТАКЖЕ</h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-5 mt-10">
             {OTHER_TYPES.map((t) => (
