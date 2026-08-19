@@ -3,6 +3,21 @@ import ContactForm from "./components/contact-form";
 
 const SITE = "https://xn--b1adlqilgi.xn--p1ai";
 
+<<<<<<< Updated upstream
+=======
+const LOGO_SRC = "/logo.jpg";
+
+const NAV_LINKS = [
+  { href: "#home", label: "Главная" },
+  { href: "#services", label: "Услуги" },
+  { href: "#bath-types", label: "Бани" },
+  { href: "#projects", label: "Проекты" },
+  { href: "#benefits", label: "Преимущества" },
+  { href: "#about", label: "О компании" },
+  { href: "#contacts", label: "Контакты" },
+];
+
+>>>>>>> Stashed changes
 const SERVICES = [
   {
     icon: "\u2668",
@@ -61,6 +76,33 @@ const ADVANTAGES = [
     num: "04",
     title: "ДОСТАВКА В РЕГИОНЫ ДФО",
     text: "Доставка во все регионы Дальнего Востока.",
+  },
+];
+
+const BATH_TYPES = [
+  {
+    title: "Модульные бани",
+    text: "Компактные бани из модулей — быстро собираются, легко переносятся на новое место. Идеальный вариант для дачи или загородного участка.",
+    img: `/images/gallery/project-1_0.png`,
+    alt: "Модульные бани",
+  },
+  {
+    title: "Квадро бани",
+    text: "Бани квадратной формы с увеличенной вместимостью. Просторная парная и удобная планировка для компании друзей или большой семьи.",
+    img: `/images/types-2.png`,
+    alt: "Квадро бани",
+  },
+  {
+    title: "Бани-бочки",
+    text: "Классическая форма бани-бочки — быстрый нагрев, равномерная циркуляция пара. Проверенная временем технология с 2014 года.",
+    img: `/images/types-1.png`,
+    alt: "Бани-бочки",
+  },
+  {
+    title: "Бани-избушки",
+    text: "Запатентованная технология «Баня-Избушка» — деревянный домик с тёплой кровлей. Максимальный комфорт и атмосфера настоящей русской бани.",
+    img: `/images/types-3.png`,
+    alt: "Бани-избушки",
   },
 ];
 
@@ -187,6 +229,43 @@ export default function Home() {
                     </a>
                   </div>
                 </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Bath Types */}
+        <section id="bath-types" className="py-20">
+          <div className="container-xl">
+            <div className="text-center">
+              <div className="section-label">КАКИЕ БАНИ МЫ ИЗГОТАВЛИВАЕМ</div>
+              <h2 className="text-4xl sm:text-5xl font-black mt-3">
+                ТИПЫ БАНЬ
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+              {BATH_TYPES.map((b) => (
+                <a
+                  key={b.title}
+                  href="#"
+                  className="card rounded-xl overflow-hidden group block"
+                >
+                  <div className="relative h-56 w-full overflow-hidden">
+                    <Image
+                      src={b.img}
+                      alt={b.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-extrabold text-xl">{b.title}</h3>
+                    <p className="mt-3 text-sm text-white/55 leading-6">
+                      {b.text}
+                    </p>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
