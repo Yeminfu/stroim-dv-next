@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../../../components/contact-form";
+import QuadroCalculator from "./calculator";
 
 const MODELS = [
   {
@@ -366,14 +367,30 @@ export default function QuadroPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Calculator */}
       <section id="calculator" className="py-16">
+        <div className="container-xl">
+          <div className="text-center mb-10">
+            <div className="section-label">КАЛЬКУЛЯТОР</div>
+            <h2 className="text-3xl font-black mt-3">
+              РАССЧИТАЙТЕ СТОИМОСТЬ
+            </h2>
+            <p className="mt-3 text-white/50 max-w-2xl mx-auto">
+              Выберите модель и дополнительные опции — итоговая стоимость рассчитается автоматически.
+            </p>
+          </div>
+          <QuadroCalculator />
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-16 border-t border-white/5">
         <div className="container-xl">
           <div className="card rounded-2xl p-10 grid md:grid-cols-2 gap-10 items-center">
             <div>
               <div className="section-label">ЗАКАЖИТЕ КВАДРО</div>
               <h2 className="text-3xl font-black mt-3">
-                ПОДБЕРЕМ МОДЕЛЬ ПОД ВАШИ НУЖДЫ
+                ГОТОВЫ ОФОРМИТЬ ЗАЯВКУ?
               </h2>
               <p className="mt-4 text-white/60">
                 Оставьте заявку — мы свяжемся с вами, подскажем по стоимости и срокам.

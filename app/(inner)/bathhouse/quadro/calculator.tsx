@@ -1,0 +1,254 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import {
+  QUADRO_MODELS,
+  OPTION_CATEGORIES,
+  type OptionItem,
+} from "./options";
+
+function formatPrice(n: number) {
+  return n.toLocaleString("ru-RU") + " ₽";
+}
+
+type Selections = Record<string, { enabled: boolean; variantIdx: number }>;
+
+function OptionItemRow({
+  item,
+  sel,
+  onChange,
+  single,
+}: {
+  item: OptionItem;
+  sel: { enabled: boolean; variantIdx: number };
+  onChange: (enabled: boolean, variantIdx: number) => void;
+  single: boolean;
+}) {
+  const hasVariants = item.variants.length > 1;
+
+  return (
+    <div
+      className={`flex flex-col gap-2 rounded-lg border px-4 py-3 transition ${
+        sel.enabled
+          ? "border-gold/50 bg-gold/5"
+          : "border-white/10 bg-white/[0.02]"
+      }`}
+    >
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={sel.enabled}
+          onChange={(e) => onChange(e.target.checked, sel.variantIdx)}
+          className="mt-1 accent-[#FED27A] shrink-0"
+        />
+        <span className="text-sm leading-snug">{item.name}</span>
+      </label>
+
+      {sel.enabled && hasVariants && (
+        <div className="flex flex-wrap gap-2 ml-7">
+          {item.variants.map((v, i) => (
+            <label
+              key={i}
+              className={`text-xs px-3 py-1.5 rounded-full border cursor-pointer transition ${
+                i === sel.variantIdx
+                  ? "border-gold bg-gold/15 text-gold"
+                  : "border-white/15 text-white/50 hover:border-white/30"
+              }`}
+            >
+              <input
+                type="radio"
+                name={`${item.id}-variant`}
+                checked={i === sel.variantIdx}
+                onChange={() => onChange(true, i)}
+                className="sr-only"
+              />
+              {v.label}{" "}
+              <span className="opacity-70">
+                {v.price > 0 ? `+${formatPrice(v.price)}` : "бесплатно"}
+              </span>
+            </label>
+          ))}
+        </div>
+      )}
+
+      {sel.enabled && !hasVariants && (
+        <div className="ml-7 text-xs text-white/40">
+          {item.variants[0].price > 0
+            ? `+${formatPrice(item.variants[0].price)}`
+            : "бесплатно"}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function QuadroCalculator() {
+  const [modelId, setModelId] = useState<string | null>(null);
+  const [selections, setSelections] = useState<Selections>({});
+
+  const model = QUADRO_MODELS.find((m) => m.id === modelId);
+
+  const optionsTotal = useMemo(() => {
+    if (!model) return 0;
+    let sum = 0;
+    for (const cat of OPTION_CATEGORIES) {
+      for (const item of cat.items) {
+        const s = selections[item.id];
+        if (s?.enabled) {
+          sum += item.variants[s.variantIdx]?.price ?? 0;
+        }
+      }
+    }
+    return sum;
+  }, [model, selections]);
+
+  const total = (model?.price ?? 0) + optionsTotal;
+
+  function handleOptionChange(
+    item: OptionItem,
+    enabled: boolean,
+    variantIdx: number
+  ) {
+    setSelections((prev) => ({
+      ...prev,
+      [item.id]: {
+        enabled,
+        variantIdx: enabled ? variantIdx : prev[item.id]?.variantIdx ?? 0,
+      },
+    }));
+  }
+
+  function handleModelSelect(id: string) {
+    setModelId(id);
+    setSelections({});
+  }
+
+  return (
+    <div className="space-y-10">
+      {/* Model selector */}
+      <div>
+        <h3 className="text-lg font-bold mb-4">
+          1. Выберите модель
+        </h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {QUADRO_MODELS.map((m) => (
+            <button
+              key={m.id}
+              onClick={() => handleModelSelect(m.id)}
+              className={`text-left rounded-xl border p-4 transition ${
+                modelId === m.id
+                  ? "border-gold bg-gold/10 ring-1 ring-gold/30"
+                  : "border-white/10 bg-white/[0.02] hover:border-white/25"
+              }`}
+            >
+              <div className="font-bold text-sm">{m.name}</div>
+              <div className="mt-1 text-gold font-black text-lg">
+                от {formatPrice(m.price)}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Options */}
+      {model && (
+        <>
+          <div className="card rounded-2xl p-6 md:p-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8">
+              <h3 className="text-lg font-bold">
+                2. Дополнительные опции
+              </h3>
+              <div className="text-sm text-white/50">
+                Базовая стоимость:{" "}
+                <span className="text-gold font-bold text-base">
+                  {formatPrice(model.price)}
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              {OPTION_CATEGORIES.map((cat) => (
+                <div key={cat.title}>
+                  <div className="section-label mb-3">{cat.title}</div>
+                  <div className="grid gap-2">
+                    {cat.items.map((item) => (
+                      <OptionItemRow
+                        key={item.id}
+                        item={item}
+                        sel={selections[item.id] ?? {
+                          enabled: false,
+                          variantIdx: 0,
+                        }}
+                        onChange={(enabled, variantIdx) =>
+                          handleOptionChange(item, enabled, variantIdx)
+                        }
+                        single={cat.type === "single"}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Summary */}
+          <div className="card rounded-2xl p-6 md:p-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div>
+                <div className="text-sm text-white/50">Итого</div>
+                <div className="mt-1 flex items-baseline gap-3">
+                  <span className="text-3xl sm:text-4xl font-black text-gold">
+                    {formatPrice(total)}
+                  </span>
+                  {optionsTotal > 0 && (
+                    <span className="text-sm text-white/40">
+                      (базовая {formatPrice(model.price)} + опции{" "}
+                      {formatPrice(optionsTotal)})
+                    </span>
+                  )}
+                </div>
+                <div className="mt-1 text-xs text-white/35">
+                  {model.name} — точная стоимость при оформлении заявки
+                </div>
+              </div>
+              <a
+                href="#contact"
+                className="gold-gradient text-black font-bold rounded-lg px-8 py-3.5 hover:brightness-110 transition shrink-0"
+              >
+                ОФОРМИТЬ ЗАЯВКУ
+              </a>
+            </div>
+
+            {optionsTotal > 0 && (
+              <div className="mt-6 border-t border-white/10 pt-5">
+                <div className="text-xs text-white/40 mb-2">
+                  Выбранные опции:
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {OPTION_CATEGORIES.flatMap((cat) =>
+                    cat.items
+                      .filter((item) => selections[item.id]?.enabled)
+                      .map((item) => {
+                        const s = selections[item.id];
+                        const v = item.variants[s.variantIdx];
+                        return (
+                          <span
+                            key={item.id}
+                            className="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1"
+                          >
+                            {item.name}
+                            {item.variants.length > 1 && ` (${v.label})`}
+                            {v.price > 0 && ` +${formatPrice(v.price)}`}
+                          </span>
+                        );
+                      })
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
