@@ -127,27 +127,23 @@ export default function QuadroCalculator() {
     <div className="space-y-10">
       {/* Model selector */}
       <div>
-        <h3 className="text-lg font-bold mb-4">
-          1. Выберите модель
-        </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <h3 className="text-lg font-bold mb-4">1. Выберите модель</h3>
+        <select
+          value={modelId ?? ""}
+          onChange={(e) =>
+            e.target.value ? handleModelSelect(e.target.value) : null
+          }
+          className="w-full sm:w-auto bg-black/40 border border-white/20 rounded-lg px-4 py-3 outline-none focus:border-gold text-white appearance-none cursor-pointer min-w-[320px]"
+        >
+          <option value="" disabled>
+            — выберите модель —
+          </option>
           {QUADRO_MODELS.map((m) => (
-            <button
-              key={m.id}
-              onClick={() => handleModelSelect(m.id)}
-              className={`text-left rounded-xl border p-4 transition ${
-                modelId === m.id
-                  ? "border-gold bg-gold/10 ring-1 ring-gold/30"
-                  : "border-white/10 bg-white/[0.02] hover:border-white/25"
-              }`}
-            >
-              <div className="font-bold text-sm">{m.name}</div>
-              <div className="mt-1 text-gold font-black text-lg">
-                от {formatPrice(m.price)}
-              </div>
-            </button>
+            <option key={m.id} value={m.id}>
+              {m.name} — от {formatPrice(m.price)}
+            </option>
           ))}
-        </div>
+        </select>
       </div>
 
       {/* Options */}
