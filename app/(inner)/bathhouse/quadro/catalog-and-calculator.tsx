@@ -110,7 +110,11 @@ export default function CatalogAndCalculator({
               Выберите модель и дополнительные опции — итоговая стоимость рассчитается автоматически.
             </p>
           </div>
-          <QuadroCalculator modelId={modelId} onModelSelect={setModelId} />
+          <QuadroCalculator
+            key={modelId ?? "none"}
+            modelId={modelId}
+            onModelSelect={setModelId}
+          />
         </div>
       </section>
     </>

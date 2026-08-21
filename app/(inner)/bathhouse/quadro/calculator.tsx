@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
+import Image from "next/image";
 import {
   QUADRO_MODELS,
   OPTION_CATEGORIES,
@@ -17,12 +18,10 @@ function OptionItemRow({
   item,
   sel,
   onChange,
-  single,
 }: {
   item: OptionItem;
   sel: { enabled: boolean; variantIdx: number };
   onChange: (enabled: boolean, variantIdx: number) => void;
-  single: boolean;
 }) {
   const hasVariants = item.variants.length > 1;
 
@@ -34,13 +33,30 @@ function OptionItemRow({
           : "border-white/10 bg-white/[0.02]"
       }`}
     >
-      <label className="flex items-start gap-3 cursor-pointer">
+      <label
+        className={`flex gap-3 cursor-pointer ${
+          item.img ? "items-center" : "items-start"
+        }`}
+      >
         <input
           type="checkbox"
           checked={sel.enabled}
           onChange={(e) => onChange(e.target.checked, sel.variantIdx)}
-          className="mt-1 accent-[#FED27A] shrink-0"
+          className={`accent-[#FED27A] shrink-0 ${item.img ? "" : "mt-1"}`}
         />
+        {item.img && (
+          <span className="relative block w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-white/10">
+            <Image
+              src={item.img}
+              alt={item.name}
+              fill
+              sizes="64px"
+              className={`object-cover transition ${
+                sel.enabled ? "" : "opacity-60"
+              }`}
+            />
+          </span>
+        )}
         <span className="text-sm leading-snug">{item.name}</span>
       </label>
 
@@ -90,10 +106,6 @@ export default function QuadroCalculator({
   onModelSelect: (id: string) => void;
 }) {
   const [selections, setSelections] = useState<Selections>({});
-
-  useEffect(() => {
-    setSelections({});
-  }, [modelId]);
 
   const model = QUADRO_MODELS.find((m) => m.id === modelId);
 
@@ -186,7 +198,6 @@ export default function QuadroCalculator({
                         onChange={(enabled, variantIdx) =>
                           handleOptionChange(item, enabled, variantIdx)
                         }
-                        single={cat.type === "single"}
                       />
                     ))}
                   </div>

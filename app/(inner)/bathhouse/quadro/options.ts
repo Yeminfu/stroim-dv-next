@@ -6,6 +6,7 @@ export interface PriceVariant {
 export interface OptionItem {
   id: string;
   name: string;
+  img?: string;
   variants: PriceVariant[];
 }
 
@@ -22,6 +23,7 @@ export const OPTION_CATEGORIES: OptionCategory[] = [
       {
         id: "iskrogasitel",
         name: "Дымоход с искрогасителем",
+        img: "/images/options/iskrogasitel.png",
         variants: [{ label: "Стандарт", price: 3900 }],
       },
       {
@@ -68,11 +70,13 @@ export const OPTION_CATEGORIES: OptionCategory[] = [
       {
         id: "pech-moshnaya",
         name: "Замена печи на более мощную (16–18 кВт) и/или с выносной топкой",
+        img: "/images/options/pech-moshnaya.png",
         variants: [{ label: "Стандарт", price: 25900 }],
       },
       {
         id: "bak-samovar",
         name: "Бак-самовар из нержавеющей стали",
+        img: "/images/options/bak-samovar.png",
         variants: [
           { label: "25 л", price: 9000 },
           { label: "50 л", price: 15000 },
@@ -124,6 +128,7 @@ export const OPTION_CATEGORIES: OptionCategory[] = [
       {
         id: "stupeni",
         name: "Деревянные ступени-крылечко",
+        img: "/images/options/stupeni.png",
         variants: [
           { label: "1 ступень", price: 3900 },
           { label: "2 ступени", price: 5900 },
@@ -151,11 +156,13 @@ export const OPTION_CATEGORIES: OptionCategory[] = [
       {
         id: "podsvetka",
         name: "Подсветка мультицвет в парном отделении",
+        img: "/images/options/podsvetka.png",
         variants: [{ label: "Стандарт", price: 32000 }],
       },
       {
         id: "oblivka",
         name: "Обливочное ведро",
+        img: "/images/options/oblivka.png",
         variants: [{ label: "Стандарт", price: 15900 }],
       },
       {
@@ -171,6 +178,7 @@ export const OPTION_CATEGORIES: OptionCategory[] = [
       {
         id: "kamni",
         name: "Камни для бани (20 кг)",
+        img: "/images/options/kamni.png",
         variants: [{ label: "Стандарт", price: 900 }],
       },
     ],
@@ -187,6 +195,7 @@ export const OPTION_CATEGORIES: OptionCategory[] = [
       {
         id: "okno-parnaya",
         name: "Дополнительное окно в парной 1×1 м (закалённое стекло 8 мм)",
+        img: "/images/options/okno-parnaya.png",
         variants: [{ label: "Стандарт", price: 15000 }],
       },
       {
