@@ -23,8 +23,6 @@ function OptionItemRow({
   sel: { enabled: boolean; variantIdx: number };
   onChange: (enabled: boolean, variantIdx: number) => void;
 }) {
-  const hasVariants = item.variants.length > 1;
-
   return (
     <div
       className={`flex flex-col gap-2 rounded-lg border px-4 py-3 transition ${
@@ -33,67 +31,49 @@ function OptionItemRow({
           : "border-white/10 bg-white/[0.02]"
       }`}
     >
-      <label
-        className={`flex gap-3 cursor-pointer ${
-          item.img ? "items-center" : "items-start"
-        }`}
-      >
-        <input
-          type="checkbox"
-          checked={sel.enabled}
-          onChange={(e) => onChange(e.target.checked, sel.variantIdx)}
-          className={`accent-[#FED27A] shrink-0 ${item.img ? "" : "mt-1"}`}
-        />
-        {item.img && (
-          <span className="relative block w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-white/10">
-            <Image
-              src={item.img}
-              alt={item.name}
-              fill
-              sizes="64px"
-              className={`object-cover transition ${
-                sel.enabled ? "" : "opacity-60"
-              }`}
-            />
-          </span>
-        )}
-        <span className="text-sm leading-snug">{item.name}</span>
-      </label>
+      <div className="text-sm leading-snug">{item.name}</div>
 
-      {sel.enabled && hasVariants && (
-        <div className="flex flex-wrap gap-2 ml-7">
-          {item.variants.map((v, i) => (
+      <div className="flex flex-wrap gap-2">
+        {item.variants.map((v, i) => {
+          const active = sel.enabled && i === sel.variantIdx;
+          return (
             <label
               key={i}
-              className={`text-xs px-3 py-1.5 rounded-full border cursor-pointer transition ${
-                i === sel.variantIdx
+              className={`flex items-center gap-2 text-xs pr-3 pl-1.5 py-1 rounded-full border cursor-pointer transition ${
+                active
                   ? "border-gold bg-gold/15 text-gold"
                   : "border-white/15 text-white/50 hover:border-white/30"
               }`}
             >
               <input
-                type="radio"
-                name={`${item.id}-variant`}
-                checked={i === sel.variantIdx}
-                onChange={() => onChange(true, i)}
+                type="checkbox"
+                checked={active}
+                onChange={() => onChange(!active, i)}
                 className="sr-only"
               />
-              {v.label}{" "}
-              <span className="opacity-70">
-                {v.price > 0 ? `+${formatPrice(v.price)}` : "бесплатно"}
+              {v.img && (
+                <span className="relative block w-14 h-14 shrink-0 rounded-xl overflow-hidden border border-white/10">
+                  <Image
+                    src={v.img}
+                    alt={v.label}
+                    fill
+                    sizes="56px"
+                    className={`object-cover transition ${
+                      active ? "" : "opacity-60"
+                    }`}
+                  />
+                </span>
+              )}
+              <span>
+                {v.label}{" "}
+                <span className="opacity-70">
+                  {v.price > 0 ? `+${formatPrice(v.price)}` : "бесплатно"}
+                </span>
               </span>
             </label>
-          ))}
-        </div>
-      )}
-
-      {sel.enabled && !hasVariants && (
-        <div className="ml-7 text-xs text-white/40">
-          {item.variants[0].price > 0
-            ? `+${formatPrice(item.variants[0].price)}`
-            : "бесплатно"}
-        </div>
-      )}
+          );
+        })}
+      </div>
     </div>
   );
 }
