@@ -145,9 +145,9 @@ export default function Home() {
               Производство в Хабаровске с 2014 года
             </span>
             <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-black leading-[.95] tracking-tight">
-              ОРГАНИЗАЦИЯ БАННЫХ
+              БАНИ-БОЧКИ, КАРКАСНЫЕ БАНИ, ЧАНЫ
               <br />
-              <span className="text-gold">КОМПЛЕКСОВ НА ВАШЕМ УЧАСТКЕ</span>
+              <span className="text-gold">КОМПЛЕКСЫ НА ВАШЕМ УЧАСТКЕ</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/75 leading-relaxed">
               Собственное производство бань-бочек в г.Хабаровске. Продажа банных
@@ -159,7 +159,7 @@ export default function Home() {
                 href="#calculator"
                 className="gold-gradient text-black font-bold px-7 py-4 rounded-lg hover:brightness-110 transition"
               >
-                ▣&nbsp; ОТПРАВИТЬ ЗАЯВКУ
+                ▣&nbsp; ЗАКАЗАТЬ КАТАЛОГ
               </a>
               <a
                 href="tel:+79242207378"
