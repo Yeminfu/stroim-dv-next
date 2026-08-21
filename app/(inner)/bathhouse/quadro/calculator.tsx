@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   QUADRO_MODELS,
   OPTION_CATEGORIES,
@@ -82,9 +82,18 @@ function OptionItemRow({
   );
 }
 
-export default function QuadroCalculator() {
-  const [modelId, setModelId] = useState<string | null>(null);
+export default function QuadroCalculator({
+  modelId,
+  onModelSelect,
+}: {
+  modelId: string | null;
+  onModelSelect: (id: string) => void;
+}) {
   const [selections, setSelections] = useState<Selections>({});
+
+  useEffect(() => {
+    setSelections({});
+  }, [modelId]);
 
   const model = QUADRO_MODELS.find((m) => m.id === modelId);
 
@@ -119,8 +128,7 @@ export default function QuadroCalculator() {
   }
 
   function handleModelSelect(id: string) {
-    setModelId(id);
-    setSelections({});
+    onModelSelect(id);
   }
 
   return (
