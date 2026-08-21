@@ -33,13 +33,13 @@ function OptionItemRow({
     >
       <div className="text-sm leading-snug">{item.name}</div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="grid grid-cols-2 gap-2">
         {item.variants.map((v, i) => {
           const active = sel.enabled && i === sel.variantIdx;
           return (
             <label
               key={i}
-              className={`flex items-center gap-2 text-xs pr-3 pl-1.5 py-1 rounded-full border cursor-pointer transition ${
+              className={`flex flex-col items-center gap-1.5 p-1.5 rounded-xl border cursor-pointer transition ${
                 active
                   ? "border-gold bg-gold/15 text-gold"
                   : "border-white/15 text-white/50 hover:border-white/30"
@@ -52,21 +52,21 @@ function OptionItemRow({
                 className="sr-only"
               />
               {v.img && (
-                <span className="relative block w-14 h-14 shrink-0 rounded-xl overflow-hidden border border-white/10">
+                <span className="relative block w-[100px] h-[100px] shrink-0 rounded-lg overflow-hidden border border-white/10">
                   <Image
                     src={v.img}
                     alt={v.label}
                     fill
-                    sizes="56px"
+                    sizes="100px"
                     className={`object-cover transition ${
                       active ? "" : "opacity-60"
                     }`}
                   />
                 </span>
               )}
-              <span>
-                {v.label}{" "}
-                <span className="opacity-70">
+              <span className="text-center leading-tight">
+                {v.label}
+                <span className="block opacity-70">
                   {v.price > 0 ? `+${formatPrice(v.price)}` : "бесплатно"}
                 </span>
               </span>
