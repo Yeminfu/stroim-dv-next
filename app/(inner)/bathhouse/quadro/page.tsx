@@ -256,23 +256,30 @@ export default function QuadroPage() {
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="py-16 border-y border-white/5">
+      <CatalogAndCalculator models={MODELS} />
+
+      {/* Contact */}
+      <section id="contact" className="py-16 border-t border-white/5">
         <div className="container-xl">
-          <div className="text-center">
-            <div className="section-label">ПОЧЕМУ КВАДРО</div>
-            <h2 className="text-3xl font-black mt-3">ПРЕИМУЩЕСТВА</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {ADVANTAGES.map((a) => (
-              <div key={a.title} className="card rounded-xl p-6 text-center">
-                <div className="w-14 h-14 mx-auto rounded-full border border-gold text-gold flex items-center justify-center text-xl">
-                  {a.icon}
-                </div>
-                <h3 className="mt-5 font-bold text-gold">{a.title}</h3>
-                <p className="mt-3 text-sm text-white/55 leading-6">{a.text}</p>
-              </div>
-            ))}
+          <div className="card rounded-2xl p-10 grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="section-label">ЗАКАЖИТЕ КВАДРО</div>
+              <h2 className="text-3xl font-black mt-3">
+                ГОТОВЫ ОФОРМИТЬ ЗАЯВКУ?
+              </h2>
+              <p className="mt-4 text-white/60">
+                Оставьте заявку — мы свяжемся с вами, подскажем по стоимости и срокам.
+              </p>
+              <ContactForm />
+            </div>
+            <div className="relative h-[280px] w-full rounded-xl overflow-hidden">
+              <Image
+                src="/images/banya-types/quadro.png"
+                alt="Квадро баня"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -302,30 +309,23 @@ export default function QuadroPage() {
         </div>
       </section>
 
-      <CatalogAndCalculator models={MODELS} />
-
-      {/* Contact */}
-      <section id="contact" className="py-16 border-t border-white/5">
+      {/* Advantages */}
+      <section className="py-16 border-y border-white/5">
         <div className="container-xl">
-          <div className="card rounded-2xl p-10 grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="section-label">ЗАКАЖИТЕ КВАДРО</div>
-              <h2 className="text-3xl font-black mt-3">
-                ГОТОВЫ ОФОРМИТЬ ЗАЯВКУ?
-              </h2>
-              <p className="mt-4 text-white/60">
-                Оставьте заявку — мы свяжемся с вами, подскажем по стоимости и срокам.
-              </p>
-              <ContactForm />
-            </div>
-            <div className="relative h-[280px] w-full rounded-xl overflow-hidden">
-              <Image
-                src="/images/banya-types/quadro.png"
-                alt="Квадро баня"
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="text-center">
+            <div className="section-label">ПОЧЕМУ КВАДРО</div>
+            <h2 className="text-3xl font-black mt-3">ПРЕИМУЩЕСТВА</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {ADVANTAGES.map((a) => (
+              <div key={a.title} className="card rounded-xl p-6 text-center">
+                <div className="w-14 h-14 mx-auto rounded-full border border-gold text-gold flex items-center justify-center text-xl">
+                  {a.icon}
+                </div>
+                <h3 className="mt-5 font-bold text-gold">{a.title}</h3>
+                <p className="mt-3 text-sm text-white/55 leading-6">{a.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
